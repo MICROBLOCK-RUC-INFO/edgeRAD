@@ -15,7 +15,7 @@ docker-compose.yaml contains the container startup configuration
 docker-compose -f docker-compose.yaml up
 
 5. Register service<br>  
-cd doc
+cd doc<br>
 ./regist.sh
 
 6. send a request to the service<br> 
