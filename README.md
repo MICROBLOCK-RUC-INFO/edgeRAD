@@ -1,13 +1,20 @@
 edgeRAD：Resource-Efficient Reliability Anomaly Detection for Edge Services via Deep Reinforcement Learning
 
-1. Build the base image edge-r:base <br>
+1. Build the docker image edge-r:base <br>
 ./base_build.sh
 
-2. Package the service and anomaly-detection module into images<br>
+2. Package the service and anomaly-detection module into docker image service-rl:latest<br>
 ./build.sh
 
 3. Start the containers (both the service and the detection module will run)<br>
 docker-compose -f docker-compose.yaml up
+
+output:<br>
+ ⠿ Container service-rl  Created<br>                                                                                       
+Attaching to service-rl<br>
+service-rl  | Started Java process (PID=8), logging to hello.log<br>
+service-rl  | executing... ddpg_train.py<br>
+service-rl  | Using device:  cpu
 
 4. Register service<br>
 cd doc<br>
