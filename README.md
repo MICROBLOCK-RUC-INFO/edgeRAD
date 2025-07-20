@@ -15,7 +15,7 @@ service-rl  | Started Java process (PID=8), logging to hello.log<br>
 service-rl  | executing... ddpg_train.py<br>
 service-rl  | Using device:  cpu<br>
 
-EXP_MODE = simulation (default) or real
+    EXP_MODE = simulation (default) or real
 
 4. Register service<br>
 cd doc<br>
