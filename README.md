@@ -6,7 +6,7 @@ edgeRAD：Resource-Efficient Reliability Anomaly Detection for Edge Services via
 2. Package the service and anomaly-detection module into docker image service-rl:latest<br>
 ./build.sh
 
-3. Start the containers (both the service and the detection module will run)<br>
+3. Start a container (both the service and the detection module will run)<br>
 docker-compose -f docker-compose.yaml up<br>
 output:<br>
 Container service-rl  Created<br>
@@ -17,12 +17,12 @@ service-rl  | Using device:  cpu<br>
 
     EXP_MODE = simulation (default) (Set EXP_MODE=real to obtain live data stream instead of simulation)
 
-4. Register service<br>
+4. Register service (wait more than 10 seconds after starting the container)<br>
 cd doc<br>
 ./regist.sh
 
 5. send a request to the service<br> 
-http://10.47.10.60:9998/trace/invoke?serviceName=A&traceID=23&returnImmediately=true&reqID=-1
+curl "http://10.47.10.60:9998/trace/invoke?serviceName=A&traceID=23&returnImmediately=true&reqID=-1"
 
 * config/application.yml contains the service configuration settings<br>
 * docker-compose.yaml contains the container startup configuration<br>
