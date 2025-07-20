@@ -2,7 +2,7 @@
 Resource-Efficient Reliability Anomaly Detection for Edge Services via Deep Reinforcement Learning
 
 
-config/application.yml contains the service configuration settings
+config/application.yml contains the service configuration settings<br>
 docker-compose.yaml contains the container startup configuration
 
 1. Build the base image edge-r:base <br>
