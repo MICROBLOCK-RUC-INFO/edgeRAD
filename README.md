@@ -8,6 +8,7 @@ edgeRAD：Resource-Efficient Reliability Anomaly Detection for Edge Services via
 
 3. Start the containers (both the service and the detection module will run)<br>
 docker-compose -f docker-compose.yaml up<br>
+
 output:<br>
 Container service-rl  Created<br>
 Attaching to service-rl<br>
