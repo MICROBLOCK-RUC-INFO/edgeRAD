@@ -24,7 +24,7 @@ services:
       
       # Single service configuration
       - SERVICE_NAME=A
-      - EXP_MODE=real
+      - EXP_MODE=simulation
       
       # State and action dimensions
       - STATE_LEN=10
