@@ -9,11 +9,13 @@ edgeRAD：Resource-Efficient Reliability Anomaly Detection for Edge Services via
 3. Start the containers (both the service and the detection module will run)<br>
 docker-compose -f docker-compose.yaml up<br>
 output:<br>
- ⠿ Container service-rl  Created<br>                                                                                       
+Container service-rl  Created<br>
 Attaching to service-rl<br>
 service-rl  | Started Java process (PID=8), logging to hello.log<br>
 service-rl  | executing... ddpg_train.py<br>
-service-rl  | Using device:  cpu
+service-rl  | Using device:  cpu<br>
+
+Note: EXP_MODE = simulation (default) or real
 
 4. Register service<br>
 cd doc<br>
