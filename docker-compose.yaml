@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  edge-rl:
+    image: service-rl:latest
+    container_name: service-rl
+    ports:
+      - "9998:9999"  # 宿主机:容器
+    environment:
+      # Learning rates
+      - LR_ACTOR=1e-4
+      - LR_CRITIC=1e-3
+      - LR_PREDICT=1e-3
+      
+      # Hyperparameters
+      - GAMMA=0.8
+      - TAU=0.005
+      - MEMORY_SIZE=100000
+      - batch_size=64
+      
+      # Bounds
+      - MINIMUN=-30
+      - MAXIMUN=30
+      
+      # Single service configuration
+      - SERVICE_NAME=A
+      - EXP_MODE=real
+      
+      # State and action dimensions
+      - STATE_LEN=10
+      - ACTION_LEN=10
+      - ACTION_MAX_NUM=10
+      - HIDDEN_DIM=512
+      
+      # Training hyperparameters
+      - NUM_EPISODE=666666
+      - NUM_STEP=200
+      - EPSILON_START=1.0
+      - EPSILON_END=0.066
+      - EPSILON_DECAY=10000
+      
+      # Recovery bound
+      - RECOVERY_BOUND=0.6
+      - SAVE_INTERVAL_EPISODE=10
+      
+      # Database configuration
+      - DB_USERNAME=root
+      - DB_PASSWORD=12345678
+      - DB_HOST=10.47.10.60
+      - DB_NAME=service_monitoring
+      - DB_PORT=3306
+    working_dir: /app/edgeRAD
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    #command: python ddpg_train.py
+    volumes:
+      - ./src/edgeRAD/ddpg/log:/app/edgeRAD/src/edgeRAD/ddpg/log
+      - ./src/edgeRAD/ddpg/models:/app/edgeRAD/src/edgeRAD/ddpg/models
+    networks:
+      - service-rl-net
+
+networks:
+  service-rl-net:
+    driver: bridge

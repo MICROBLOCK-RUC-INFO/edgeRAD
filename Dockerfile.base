@@ -1,0 +1,14 @@
+# 使用你指定的基础镜像
+FROM pytorch/pytorch:1.10.0-cuda11.3-cudnn8-runtime
+
+# 设置工作目录
+WORKDIR /app
+
+# 先拷贝requirements.txt并安装依赖
+# 这样做可以利用Docker的缓存层，当requirements.txt不变时不会重新安装依赖
+COPY requirements.txt .
+RUN python -m pip install --upgrade pip -i https://mirrors.aliyun.com/pypi/simple/
+RUN pip install --no-cache-dir -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
+
+# 指定容器启动时默认执行的命令（根据你的需求修改）
+CMD ["bash"]

@@ -1,0 +1,39 @@
+server:
+  port: 9999
+
+test:
+  java: "${JAVA_HOME:HELLO}"
+
+server.tomcat:
+  threads:
+    max: 512
+    min-spare: 16
+  max-connections: 8192
+  accept-count: 1024
+
+server.reactive.session:
+  timeout: 5m
+
+spring:
+  datasource:
+    url: jdbc:mysql://10.47.10.60:3306/service_monitoring
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000 # 连接超时时间（毫秒)
+      maximum-pool-size: 128 # 连接池的最大连接数
+      minimum-idle: 4 # 连接池的最小空闲连接数
+      max-lifetime: 30000
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.ahangge.helloservice.entity
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
