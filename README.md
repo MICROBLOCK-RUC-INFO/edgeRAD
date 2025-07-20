@@ -26,7 +26,7 @@ service-rl  | Using device:  cpu<br>
 * docker-compose.yaml contains the container startup configuration<br>
 * EXP_MODE = simulation (default) (Set EXP_MODE=real to obtain live data stream instead of simulation)
 
-4. Register service (wait more than 10 seconds after starting the container)<br>
+4. Register service (After starting the containers, wait at least 10 seconds to ensure all services have fully initialized)<br>
 cd doc<br>
 ./regist.sh
 
