@@ -5,23 +5,18 @@ Resource-Efficient Reliability Anomaly Detection for Edge Services via Deep Rein
 config/application.yml contains the service configuration settings
 docker-compose.yaml contains the container startup configuration
 
-1. Build the base image edge-r:base
-   
+1. Build the base image edge-r:base <br>
 ./base_build.sh
 
-3. Package the service and anomaly-detection module into images
-   
+2. Package the service and anomaly-detection module into images<br>
 ./build.sh
 
-4. Start the containers (both the service and the detection module will run)
-   
+3. Start the containers (both the service and the detection module will run)<br>   
 docker-compose -f docker-compose.yaml up
 
-6. Register service
-   
+4. Register service<br>  
 cd doc
 ./regist.sh
 
-8. send a request to the service
-   
+5. send a request to the service<br> 
 http://10.47.10.60:9998/trace/invoke?serviceName=A&traceID=23&returnImmediately=true&reqID=-1
