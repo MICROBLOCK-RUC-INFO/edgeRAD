@@ -14,7 +14,7 @@ docker-compose.yaml contains the container startup configuration
 3. Start the containers (both the service and the detection module will run)<br>
 docker-compose -f docker-compose.yaml up
 
-5. Register service<br>  
+5. Register service<br>
 cd doc<br>
 ./regist.sh
 
