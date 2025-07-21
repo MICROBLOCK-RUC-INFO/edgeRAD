@@ -1,5 +1,10 @@
 edgeRAD：Resource-Efficient Reliability Anomaly Detection for Edge Services via Deep Reinforcement Learning
 
+**Run directly<br>
+cd src/edgeRAD/ddpg<br>
+python ddpg_train.py
+
+**Run with docker<br>
 Prerequisites
 * Docker >= 20.10  
 * Docker Compose >= 2.12  
