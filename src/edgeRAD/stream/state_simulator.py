@@ -5,6 +5,7 @@ from edgeRAD.utils.constants import *
 from edgeRAD.stream.patterns import *
 from edgeRAD.stream.reliablity_stream import *
 from edgeRAD.detection.divergence import *
+from sklearn.ensemble import IsolationForest
 
 class Service_Simulator:
     def __init__(self, mode, service) -> None:
@@ -15,6 +16,11 @@ class Service_Simulator:
         self.sampler = StreamingHistoricalSampler(RESERVOIR_LEN, FEATURE_LEN)
         self.Xh = [[0.0]*FEATURE_LEN for _ in range(RESERVOIR_LEN)]
         self.last_pos = -1  #上次调用还没有拉取的可靠性数据流长度，初始是-1
+
+        self.iso = IsolationForest(contamination=0.01,
+                      n_estimators=20,
+                      max_samples='auto',
+                      random_state=42)
 
     def reset(self):
         return self.init_state()
@@ -64,6 +70,13 @@ class Service_Simulator:
 
             diff_med = np.median(diff_vals)
             next_state.append(diff_med)
+
+            # start = time.time()
+            # y_iso = self.iso.fit_predict(Xn)            # 正常→1，异常→-1
+            # iso_anomalies = np.where(y_iso == -1)[0] #定位Xn中异常具体的位置
+            # end = time.time()
+            # print(f"time: {(end - start)*1000:.2f} ms")
+            # print("IsolationForest 异常索引：", iso_anomalies)
             
             #调整拉取数据流的起始
             self.last_pos = detections[-1] - ACTION_MAX_NUM 
