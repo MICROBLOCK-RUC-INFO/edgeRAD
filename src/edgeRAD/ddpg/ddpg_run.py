@@ -167,8 +167,8 @@ try:
                 diff_vals.append(diff)
 
                 # start = time.time()
-                # y_iso = iso.fit_predict(Xn)            # 正常→1，异常→-1
-                # iso_anomalies = np.where(y_iso == -1)[0] #定位Xn中异常具体的位置
+                y_iso = iso.fit_predict(Xn)            # 正常→1，异常→-1
+                iso_anomalies = np.where(y_iso == -1)[0] #定位Xn中异常具体的位置
                 # end = time.time()
                 # print(f"time: {(end - start)*1000:.2f} ms")
                 # print("IsolationForest 异常索引：", iso_anomalies)
