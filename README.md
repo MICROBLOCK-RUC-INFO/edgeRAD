@@ -10,7 +10,7 @@ Prerequisites
 * Docker Compose >= 2.12  
 * docker images: openjdk:8
 
-1. Build the docker image edge-r:base <br>
+1. Build the docker image edge-rl:base <br>
 ./base_build.sh
 
 2. Package service (hello.jar) and anomaly-detection module into docker image service-rl:latest<br>
