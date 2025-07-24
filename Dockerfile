@@ -18,7 +18,7 @@ COPY src /app/edgeRAD/src
 # 设置可执行权限
 RUN chmod +x hello.jar \
     start.sh \
-    src/edgeRAD/ddpg/ddpg_run.py
+    src/edgeRAD/ddpg/ddpg_train.py
 
 # 设置环境变量
 ENV JAVA_HOME=/usr/local/openjdk-8
