@@ -28,6 +28,7 @@ Attaching to service-rl<br>
 service-rl  | Started Java process (PID=8), logging to hello.log<br>
 service-rl  | executing... ddpg_train.py<br>
 service-rl  | Using device:  cpu<br>
+...
 
 * docker-compose.yaml describes the container startup configuration<br>
 * EXP_MODE = simulation (default) (Set EXP_MODE=real to obtain live data stream instead of simulation)
