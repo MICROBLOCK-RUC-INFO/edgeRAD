@@ -36,7 +36,7 @@ service-rl  | Using device:  cpu<br>
 cd doc<br>
 ./regist.sh
 
-5. send a request to the service<br> 
+5. send a request to the service (It is recommended to use JMeter to simulate user request load)<br> 
 curl "http://10.47.10.60:9998/trace/invoke?serviceName=A&traceID=23&returnImmediately=true&reqID=-1"
 
 
