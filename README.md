@@ -33,11 +33,11 @@ service-rl  | Using device:  cpu<br>
 * docker-compose.yaml describes the container startup configuration<br>
 * EXP_MODE = simulation (default) (Set EXP_MODE=real to obtain live data stream instead of simulation)
 
-4. Register service (After starting the containers, wait at least 10 seconds to ensure all services have fully initialized)<br>
+4. (If EXP_MODE=real) Register service (After starting the containers, wait at least 10 seconds to ensure all services have fully initialized)<br>
 cd doc<br>
 ./regist.sh
 
-5. send a request to the service (It is recommended to use JMeter to simulate user request load)<br> 
+5.  (If EXP_MODE=real) send a request to the service (It is recommended to use JMeter to simulate user request load)<br> 
 curl "http://10.47.10.60:9998/trace/invoke?serviceName=A&traceID=23&returnImmediately=true&reqID=-1"
 
 
