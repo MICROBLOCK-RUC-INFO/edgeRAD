@@ -1,6 +1,7 @@
 edgeRAD：Resource-Efficient Reliability Anomaly Detection for Edge Services via Deep Reinforcement Learning
 
 **Run directly<br>
+export PYTHONPATH=$PYTHONPATH:/your-path/edgeRAD-main/src 
 cd src/edgeRAD/ddpg<br>
 python ddpg_train.py
 
