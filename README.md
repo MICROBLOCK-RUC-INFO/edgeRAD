@@ -18,7 +18,7 @@ Prerequisites
 ./build.sh
 
 * hello.jar is a configurable service that enables the flexible specification of inter-service invocation relationships via a configuration file, such as post_data.json<br>
-* config/application.yml contains the service configuration settings
+* config/application.yml describes the service configuration settings
 
 3. Start a container (both the service and the detection module will run)<br>
 docker-compose -f docker-compose.yaml up<br>
@@ -29,7 +29,7 @@ service-rl  | Started Java process (PID=8), logging to hello.log<br>
 service-rl  | executing... ddpg_train.py<br>
 service-rl  | Using device:  cpu<br>
 
-* docker-compose.yaml contains the container startup configuration<br>
+* docker-compose.yaml describes the container startup configuration<br>
 * EXP_MODE = simulation (default) (Set EXP_MODE=real to obtain live data stream instead of simulation)
 
 4. Register service (After starting the containers, wait at least 10 seconds to ensure all services have fully initialized)<br>
